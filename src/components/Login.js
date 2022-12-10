@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import swal from 'sweetalert';
+import swal from 'sweetalert2';
 import {useNavigate, Link, Navigate } from 'react-router-dom';
 import sherk from '../media/gif/sherk.gif'
 import logo from '../media/img/logo.png'
@@ -23,7 +23,7 @@ export default function Login() {
     
     // If the email and password are empty stop the form
     if(email === '' || password === '') {
-      swal({text: 'Los campos no pueden estar vacios.', icon: "warning"});
+      swal.fire({text: 'Los campos no pueden estar vacios.', icon: "warning"});
       return; 
     }
     // We use the regex to detect if the email is valid
@@ -40,16 +40,17 @@ export default function Login() {
     axios.post('http://challenge-react.alkemy.org', {email, password})
       .catch(err => console.log(err))
       .then(res => {
-        swal(
-        <div>
-            <h5> Bienvenido a The Movies Database!!</h5>
-            <img className='image-fluid rounded' src={sherk} alt='Sherk opening the door.'/>
-        </div>,
-        {text: 'Credenciales validos', icon: "success"});
+        new swal({
+          title: '<h5>Bienvenido a The Movies Database</h5>',
+        text: 'Credenciales validos',
+        imageUrl: 'https://thumbs.gfycat.com/ChillyFrayedAsiandamselfly-max-1mb.gif',
+        imageHeight: "20vh",
+        imageAlt:'back',
+        icon: "success"});
         const token = res.data.token;
-        // Storing the token in the localStorage
+        //Storing the token in the localStorage
         localStorage.setItem('token', token);
-        // Redirect to another page
+        //Redirect to another page
         navigate("/listado");
       })
     
