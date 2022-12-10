@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import swal from '@sweetalert/with-react';
+import swal from 'sweetalert';
 import {useNavigate, Link, Navigate } from 'react-router-dom';
 import sherk from '../media/gif/sherk.gif'
 import logo from '../media/img/logo.png'
