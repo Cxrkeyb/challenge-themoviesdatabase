@@ -1,14 +1,19 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-export default function ListadoPelicula({title, description, img}) {
+export default function ListadoPelicula({id,title, description, img}) {
+  // Detects if the overview has 
+  if(title.length > 20){
+    title = `${title.substring(0,20)}...`
+  }
   return (
-    <div className='col-2'>
-        <div className="card">
-          <img src="" className="card-img-top" alt="" />
-          <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="/hol" className="btn btn-primary">Go somewhere</a>
+    <div className='col-12 col-sm-6 col-md-4 col-lg-2 overflow-hidden'>
+        <div className="card bg-dark my-4">
+          <img src={img} className="card-img-top img-fluid" alt="" />
+          <div className="card-body d-flex flex-column justify-content-between" style={{height: '30vh'}}>
+            <h5 className="card-title text-white">{title}</h5>
+            <p className="card-text text-white">{description}</p>
+            <Link to={`/detalle?movieID=${id}`} className="btn btn-danger">Ver mas...</Link>
           </div>
         </div>
       </div>

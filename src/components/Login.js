@@ -54,7 +54,7 @@ export default function Login() {
     // Axios post on netlify doesnt works because the url is a http instead a https
     // Post the email and password to get the token of the user
     // axios.post('http://challenge-react.alkemy.org/', {email, password})
-    //   .catch(err => console.log(err))
+    //
     //   .then(res => {
     //     new swal({
     //       title: '<h5>Bienvenido a The Movies Database</h5>',
@@ -69,6 +69,7 @@ export default function Login() {
     //      //Redirect to another page
     //      navigate("/listado");
     //   })
+    //    .catch(err => console.log(err))
     
   }
   // Take the data of the token

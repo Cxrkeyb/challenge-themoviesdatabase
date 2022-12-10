@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 // Styles
 import './css/App.css'
+import Detalle from "./components/Detalle";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path='/listado' element={<Listado />}/>
+        <Route path='/detalle?movieID' element={<Detalle />}/>
       </Routes>
       <Footer />
     </div>
