@@ -37,20 +37,7 @@ export default function Login() {
       return;
     }
     // Detects if the email and password are valid
-    if(email === 'challenge@alkemy.org' && password === 'react'){
-      new swal({
-      title: '<h5>Bienvenido a The Movies Database</h5>',
-      text: 'Credenciales validos',
-      imageUrl: 'https://thumbs.gfycat.com/ChillyFrayedAsiandamselfly-max-1mb.gif',
-      imageHeight: "20vh",
-      imageAlt:'back',
-      icon: "success"});
-      const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJjaGFsbGVuZ2VAYWxrZW15Lm9yZyIsImlhdCI6MTUxNjIzOTAyMn0.ilhFPrG0y7olRHifbjvcMOlH7q2YwlegT0f4aSbryBE';
-        //Storing the token in the localStorage
-        localStorage.setItem('token', token);
-        //Redirect to another page
-        navigate("/listado");
-    }
+    
     // Axios post on netlify doesnt works because the url is a http instead a https
     // Post the email and password to get the token of the user
     // axios.post('http://challenge-react.alkemy.org/', {email, password})
