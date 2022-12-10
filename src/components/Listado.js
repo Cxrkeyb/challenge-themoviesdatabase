@@ -12,7 +12,7 @@ export default function Listado() {
         if(token == null){
           navigate("/");
         }
-      }, []); 
+      }); 
   return (
     <div>Listado</div>
   )

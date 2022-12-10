@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import swal from '@sweetalert/with-react';
-import {useNavigate } from 'react-router-dom';
+import {useNavigate, Link } from 'react-router-dom';
 import sherk from '../media/gif/sherk.gif'
+import logo from '../media/img/logo.png'
 
 export default function Login() {
   // Allow to navigate to another page
@@ -53,15 +54,11 @@ export default function Login() {
       })
     
   }
-  const banana = [2,3,4]
   return (
-    <div className='container d-flex justify-content-center flex-column h-100 align-content-center align-items-center'>
-        <form onSubmit={submitHandler} className='card d-flex flex-column align-items-center p-5 bg-light bg-opacity-70'>
-          {banana.forEach(()=>{
-            return(<h2>Hola</h2>)
-          })}
-            <h3>The Movies Database</h3>
-            <span className='fw-bold fs-5'>Welcome back!</span>
+    <div className='container d-flex justify-content-center flex-column align-content-center align-items-center overflow-hidden' style={{height: "85%"}}>
+        <form onSubmit={submitHandler} className='card d-flex flex-column align-items-center p-5 bg-dark bg-opacity-70 text-white'>
+            <img style={{height: '20vh'}} alt='logo' src={logo}></img>
+            <span className='fw-bold fs-5 text-white-50'>Welcome back!</span>
             <small className='text-muted'>Sign in to continue</small>
             <div className="mb-3">
                 <label htmlFor="userInput" className="form-label">Email
@@ -73,8 +70,8 @@ export default function Login() {
                   <input type="password" name='password' className="form-control" id="passwordInput" placeholder="Enter password"/>
                 </label>
             </div>
-            <button className='btn btn-primary'>Continue</button>
-            <a href='hola'>Forgot your password?</a>
+            <button className='btn btn-danger'>Continue</button>
+            <Link to='/recovery' className='text-danger'>Forgot your data?</Link>
         </form>
     </div>
   )

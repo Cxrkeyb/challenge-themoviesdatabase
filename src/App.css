@@ -1,6 +1,0 @@
-.App{
-    height: 100vh;
-    background-color: #e5e5f7;
-    opacity: 1;
-    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #e5e5f7 11px ), repeating-linear-gradient( #dbd8d855, #dbd8d8 );
-}
