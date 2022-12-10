@@ -1,19 +1,19 @@
-import React, {useEffect} from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { Navigate } from 'react-router-dom';
+import ListadoPelicula from './ListadoPelicula';
 
 export default function Listado() {
-    
-    let navigate = useNavigate();
-    // When the page is loaded check the token
-    useEffect(() => {
-        // Take the token of localStorage
-        let token = localStorage.getItem('token');
-        // If the token is null, then navigate to the main page
-        if(token == null){
-          navigate("/");
-        }
-      }); 
+    // Take the token data from the localStorage
+    let token = localStorage.getItem('token');
+    const peliculas = []
+    let img, title, description;
   return (
-    <div>Listado</div>
+    <>
+      {!token && <Navigate to='/' />}
+      <div className='row text-center g-0'>
+        {peliculas.map(() => {return(<ListadoPelicula key={title} title={title} img={img} description={description} />)})}
+      </div>
+    </>
+    
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import swal from '@sweetalert/with-react';
-import {useNavigate, Link } from 'react-router-dom';
+import {useNavigate, Link, Navigate } from 'react-router-dom';
 import sherk from '../media/gif/sherk.gif'
 import logo from '../media/img/logo.png'
 
@@ -54,25 +54,31 @@ export default function Login() {
       })
     
   }
+  // Take the data of the token
+  let token = localStorage.getItem('token');
   return (
-    <div className='container d-flex justify-content-center flex-column align-content-center align-items-center overflow-hidden' style={{height: "85%"}}>
-        <form onSubmit={submitHandler} className='card d-flex flex-column align-items-center p-5 bg-dark bg-opacity-70 text-white'>
-            <img style={{height: '20vh'}} alt='logo' src={logo}></img>
-            <span className='fw-bold fs-5 text-white-50'>Welcome back!</span>
-            <small className='text-muted'>Sign in to continue</small>
-            <div className="mb-3">
-                <label htmlFor="userInput" className="form-label">Email
-                  <input type="text" name='email' className="form-control" id="userInput" placeholder="Enter email"/>
-                </label>
-            </div>
-            <div className="mb-3">
-                <label htmlFor="passwordInput" className="form-label">Password
-                  <input type="password" name='password' className="form-control" id="passwordInput" placeholder="Enter password"/>
-                </label>
-            </div>
-            <button className='btn btn-danger'>Continue</button>
-            <Link to='/recovery' className='text-danger'>Forgot your data?</Link>
-        </form>
-    </div>
+    <>
+      {token && <Navigate to='/listado'/>}
+      <div className='container d-flex justify-content-center flex-column align-content-center align-items-center overflow-hidden' style={{height: "85%"}}>
+          <form onSubmit={submitHandler} className='card d-flex flex-column align-items-center p-5 bg-dark bg-opacity-70 text-white'>
+              <img style={{height: '20vh'}} alt='logo' src={logo}></img>
+              <span className='fw-bold fs-5 text-white-50'>Welcome back!</span>
+              <small className='text-muted'>Sign in to continue</small>
+              <div className="mb-3">
+                  <label htmlFor="userInput" className="form-label">Email
+                    <input type="text" name='email' className="form-control" id="userInput" placeholder="Enter email"/>
+                  </label>
+              </div>
+              <div className="mb-3">
+                  <label htmlFor="passwordInput" className="form-label">Password
+                    <input type="password" name='password' className="form-control" id="passwordInput" placeholder="Enter password"/>
+                  </label>
+              </div>
+              <button className='btn btn-danger'>Continue</button>
+              <Link to='/recovery' className='text-danger'>Forgot your data?</Link>
+          </form>
+      </div>
+    </>
+    
   )
 }
