@@ -77,7 +77,7 @@ export default function Login() {
   return (
     <>
       {token && <Navigate to='/listado'/>}
-      <div className='container d-flex justify-content-center flex-column align-content-center align-items-center overflow-hidden' style={{height: "85%"}}>
+      <div className='container d-flex justify-content-center flex-column align-content-center align-items-center overflow-hidden' style={{height: "85vh"}}>
           <form onSubmit={submitHandler} className='card d-flex flex-column align-items-center p-5 bg-dark bg-opacity-70 text-white'>
               <img style={{height: '20vh'}} alt='logo' src={logo}></img>
               <span className='fw-bold fs-5 text-white-50'>Welcome back!</span>
