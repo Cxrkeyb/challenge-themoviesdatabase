@@ -4,12 +4,12 @@
 .imgSize{
     height: 30vh;
 }
-@media only screen and (min-width: 360px) and (max-width: 540px) {
+@media only screen and (min-width: 320px) and (max-width: 540px) {
 	.cardSize{
         height: 100%;
     }
     .imgSize{
-        height: 20vh;
+        height: 30vh;
     }
 }
 @media only screen and (min-width: 541px) and (max-width: 768px) {
