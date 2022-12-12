@@ -22,7 +22,7 @@ export default function Listado() {
   return (
     <>
       {!token && <Navigate to='/' />}
-      <div className='row text-center g-4 bg-dark bg-opacity-75 bg-gradient'>
+      <div className='p-4 row text-center g-4 bg-dark bg-opacity-75 bg-gradient'>
         {moviesList.map((movie) => {return(<ListadoPelicula key={movie.id} title={movie.title} id={movie.id} img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} description={`${movie.overview.substring(0, 100)}...`} />)})}
       </div>
     </>
