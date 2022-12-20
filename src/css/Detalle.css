@@ -83,4 +83,12 @@
     .backdropMovie {
         width: 40vw;
     }
+
+    .textMovie {
+        font-size: 1.2rem;
+    }
+
+    .titleMovie {
+        font-size: 1.4rem;
+    }
 }

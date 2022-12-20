@@ -44,27 +44,27 @@ export default function Detalle() {
               <div className='d-flex justify-content-center justify-content-xxl-start align-items-xxl-center'>
                 <img className='posterMovie' alt='poster movie' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
               </div>
-              <div className='d-flex containerRightSize flex-column gap-2 align-items-center '>
+              <div className='d-flex containerRightSize flex-column gap-2 align-items-center justify-content-xxl-center'>
                 <div className='d-flex align-items-center flex-column'>
                     <h2>{movie.title}</h2>
                     <span>{movie.release_date}</span>
                 </div>
-                <span className='overviewMovie'>
+                <span className='textMovie'>
                     {movie.overview}
                 </span>
                 <div className='movieDouble bg-secondary text-black bg-opacity-75 d-flex justify-content-around p-2'>
                   <div className='movieSizeC'>
-                    <h6>Calificacion</h6>
+                    <h6 className='titleMovie'>Calificacion</h6>
                     <div className='d-flex align-items-center gap-1'>
                       <img src={star} className='scoreImg' alt='Stars: '/>
-                      <span>{movie.vote_average}</span>
+                      <span className='textMovie'>{movie.vote_average}</span>
                     </div>
                   </div>
                   <div className='movieSizeC'>
-                    <h6>Votos</h6>
+                    <h6 className='titleMovie'>Votos</h6>
                     <div className='d-flex align-items-center gap-1'>
                       <img src={group} className='scoreImg' alt='Stars: '/>
-                      <span>{movie.vote_count}</span>
+                      <span className='textMovie'>{movie.vote_count}</span>
                     </div>
                   </div>
                 </div>
@@ -72,7 +72,7 @@ export default function Detalle() {
                 <div className='d-flex genreMovie justify-content-around'>
                     {genres.map((genero)=>
                       {return(
-                      <div key={genero.id} className='d-flex bg-light text-black bg-opacity-75 justify-content-center align-items-center p-2'>
+                      <div key={genero.id} className='textMovie d-flex bg-light text-black bg-opacity-75 justify-content-center align-items-center p-2'>
                         {genero.name}
                       </div>)}
                     )}
@@ -81,32 +81,32 @@ export default function Detalle() {
             </div>
             <div className='container dataMovie d-flex justify-content-around flex-row gap-2'>
               <div className='d-flex flex-column justify-content-start align-items-center'>
-                <div className='productionSize d-flex align-items-center justify-content-center border-bottom'>Lenguajes</div>
+                <div className='productionSize d-flex align-items-center justify-content-center border-bottom titleMovie p-xxl-2'>Lenguajes</div>
                 {languages.map((language)=>
-                {return <div key={language.iso_639_1} className='productionsMovie d-flex align-items-center justify-content-center text-center border-bottom'>{language.english_name}</div>}
+                {return <div key={language.iso_639_1} className='productionsMovie textMovie d-flex align-items-center justify-content-center text-center border-bottom'>{language.english_name}</div>}
                 )}
               </div>
               <div className='d-flex flex-column justify-content-start align-items-center'>
-              <div className='productionSize d-flex align-items-center justify-content-center border-bottom'>Productoras</div>
+              <div className='productionSize d-flex align-items-center justify-content-center border-bottom titleMovie p-xxl-2'>Productoras</div>
                 {productionCs.map((production)=>
                   { 
-                    return <div key={production.id} className='productionsMovie d-flex align-items-center justify-content-center text-center border-bottom'>{production.name}</div>}
+                    return <div key={production.id} className='productionsMovie textMovie d-flex align-items-center justify-content-center text-center border-bottom'>{production.name}</div>}
                 )}
               </div>
             </div>
             {
               movie.budget > 0 ?
-              <div className='movieDouble bg-secondary text-black bg-opacity-75 d-flex justify-content-around p-2'>
+              <div className='movieDouble bg-secondary text-black bg-opacity-75 d-flex justify-content-around p-4'>
                 <div>
-                  <h6>Presupuesto</h6>
+                  <h6 className='titleMovie'>Presupuesto</h6>
                   <div className='d-flex justify-content-start gap-1'>
-                    <span>${movie.budget > 999999 ? `${(movie.budget/1000000).toFixed(0)} millones de` : `${(movie.budget/1000).toFixed(0)} miles de`} USD</span>
+                    <span className='textMovie'>${movie.budget > 999999 ? `${(movie.budget/1000000).toFixed(0)} millones de` : `${(movie.budget/1000).toFixed(0)} miles de`} USD</span>
                   </div>
                 </div>
                 <div>
-                  <h6>Recaudacion</h6>
+                  <h6 className='titleMovie'>Recaudacion</h6>
                   <div className='d-flex align-items-center gap-1'>
-                    <span>${movie.revenue > 999999 ? `${(movie.revenue/1000000).toFixed(0)} millones de` : `${(movie.revenue/1000).toFixed(0)} miles de`} USD</span>
+                    <span className='textMovie'>${movie.revenue > 999999 ? `${(movie.revenue/1000000).toFixed(0)} millones de` : `${(movie.revenue/1000).toFixed(0)} miles de`} USD</span>
                   </div>
                 </div>
               </div>

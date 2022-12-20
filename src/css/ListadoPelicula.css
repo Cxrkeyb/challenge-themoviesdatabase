@@ -1,32 +1,57 @@
-.cardSize{
+.cardSize {
     height: 30vh;
 }
-.imgSize{
+
+.imgSize {
     height: 30vh;
 }
+
 @media only screen and (min-width: 320px) and (max-width: 540px) {
-	.cardSize{
+    .cardSize {
         height: 100%;
     }
-    .imgSize{
-        height: 30vh;
+
+    .imgSize {
+        height: 45vh;
     }
 }
+
 @media only screen and (min-width: 541px) and (max-width: 768px) {
-	.cardSize{
-        height: 22vh;
+    .cardSize {
+        height: 40vh;
     }
-    .imgSize{
-        height: 20vh;
-    }
-}
-@media only screen and (min-width: 769px) and (max-width: 1023px) {
-	.cardSize{
+
+    .imgSize {
         height: 30vh;
     }
 }
+
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+    .cardSize {
+        height: 30vh;
+    }
+
+    .imgSize {
+        height: 25vh;
+    }
+}
+
 @media only screen and (min-width: 1024px) and (max-width: 1280px) {
-	.cardSize{
+    .cardSize {
         height: 40vh;
+    }
+
+    .imgSize {
+        height: 40vh;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .imgSize {
+        height: 40vh;
+    }
+
+    .cardSize {
+        height: 37vh;
     }
 }
