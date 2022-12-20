@@ -6,11 +6,11 @@ import ListadoPelicula from './ListadoPelicula';
 
 export default function Listado() {
     // Take the token data from the localStorage
-    let token = localStorage.getItem('token');
+    let token = sessionStorage.getItem('token');
     const [moviesList, setMoviesList] = useState([]);
-
+    // Endpoint to use to get the list of movies
+    const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=349dc623bd9a8c5b606a4dba88ff1d8b&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
     useEffect(() => {
-      const endPoint = 'https://api.themoviedb.org/3/discover/movie?api_key=349dc623bd9a8c5b606a4dba88ff1d8b&language=es-ES&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
       axios.get(endPoint)
         .then((res) => {
           setMoviesList(res.data.results)

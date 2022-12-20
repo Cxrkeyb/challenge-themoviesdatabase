@@ -47,7 +47,7 @@ export default function Login() {
       icon: "success"});
       const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwiZW1haWwiOiJjaGFsbGVuZ2VAYWxrZW15Lm9yZyIsImlhdCI6MTUxNjIzOTAyMn0.ilhFPrG0y7olRHifbjvcMOlH7q2YwlegT0f4aSbryBE';
         //Storing the token in the localStorage
-        localStorage.setItem('token', token);
+        sessionStorage.setItem('token', token);
         //Redirect to another page
         navigate("/listado");
     }
@@ -73,7 +73,7 @@ export default function Login() {
     
   }
   // Take the data of the token
-  let token = localStorage.getItem('token');
+  let token = sessionStorage.getItem('token');
   return (
     <>
       {token && <Navigate to='/listado'/>}

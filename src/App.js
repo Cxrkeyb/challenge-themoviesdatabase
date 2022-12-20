@@ -11,11 +11,11 @@ import Detalle from "./components/Detalle";
 function App() {
   return (
     <div className="App d-flex flex-column justify-content-between">
-      {<Header />}
+      <Header />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path='/listado' element={<Listado />}/>
-        <Route path='/detalle?movieID' element={<Detalle />}/>
+        <Route path='/detalle' element={<Detalle />}/>
       </Routes>
       <Footer />
     </div>
