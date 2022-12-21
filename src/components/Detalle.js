@@ -5,15 +5,18 @@ import { Navigate } from 'react-router-dom';
 import Cargando from './Cargando';
 import star from '../media/img/star.png';
 import group from '../media/img/group.png';
+import imgerror from '../media/img/technicalissues.jpg'
 import '../css/Detalle.css'
 
 export default function Detalle() {
   // Set the data in a state
   const [movie, setMovie] = useState(null);
+  const [backdrop, setBackdrop] = useState(null);
+  const [poster, setPoster] = useState(null);
   const [genres, setGenres] = useState([]);
   const [languages, setLanguages] = useState([]);
   const [productionCs, setProductionCs] = useState([]);
-
+  
   useEffect(() => {
     // Get the data of the url and set the movieid
     let query = new URLSearchParams(window.location.search);
@@ -26,12 +29,25 @@ export default function Detalle() {
         setGenres(res.data.genres);
         setLanguages(res.data.spoken_languages);
         setProductionCs(res.data.production_companies);
+        setBackdrop(res.data.backdrop_path);
+        setPoster(res.data.poster_path);
       })
       .catch(err => {
         Swal.fire({title:'Hubo errores, intenta mas tarde', icon : "error"});
       })
   }, []);
   let token = sessionStorage.getItem('token');
+  let img, imgbackdrop;
+  if(poster != null){
+    img = `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+  }else{
+    img = imgerror;
+  }
+  if(backdrop != null){
+    imgbackdrop = `https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`
+  }else{
+    imgbackdrop = imgerror;
+  }
   return (
     <>
     {!token && <Navigate to='/' />}
@@ -42,7 +58,7 @@ export default function Detalle() {
           <div className='card bg-dark text-white gap-3 my-2 p-5 d-flex justify-content-center flex-column align-items-center'>
             <div className='d-flex p-xxl-5 flex-xxl-row flex-column gap-xxl-5'>
               <div className='d-flex justify-content-center justify-content-xxl-start align-items-xxl-center'>
-                <img className='posterMovie' alt='poster movie' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+                <img className='posterMovie' alt='poster movie' src={img} />
               </div>
               <div className='d-flex containerRightSize flex-column gap-2 align-items-center justify-content-xxl-center'>
                 <div className='d-flex align-items-center flex-column'>
@@ -69,14 +85,18 @@ export default function Detalle() {
                   </div>
                 </div>
                 <h2>Generos</h2>
-                <div className='d-flex genreMovie justify-content-around'>
+                {genres.length > 0 ? 
+                  <div className='d-flex genreMovie justify-content-around'>
                     {genres.map((genero)=>
                       {return(
                       <div key={genero.id} className='textMovie d-flex bg-light text-black bg-opacity-75 justify-content-center align-items-center p-2'>
                         {genero.name}
                       </div>)}
                     )}
-                </div>
+                  </div>
+                  :
+                  <span>No tiene generos especificados</span>
+                }
               </div>
             </div>
             <div className='container dataMovie d-flex justify-content-around flex-row gap-2'>
@@ -112,7 +132,7 @@ export default function Detalle() {
               </div>
               : null
             }
-            <img className='backdropMovie' alt='backdrop movie' src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} />
+            <img className='backdropMovie' alt='backdrop movie' src={imgbackdrop} />
           </div>
         </div>
       </>

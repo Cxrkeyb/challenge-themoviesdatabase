@@ -22,14 +22,11 @@ function App() {
           const favsArray = JSON.parse(favsLocal);
           setFavorites(favsArray);
       }
+      const tokenLocal = sessionStorage.getItem('token');
+      if(tokenLocal != null){
+          setToken(tokenLocal);
+      }
   }, [])
-  useEffect(()=>{
-    const tokenLocal = sessionStorage.getItem('token');
-    console.log(tokenLocal);
-    if(tokenLocal != null){
-        setToken(tokenLocal);
-    }
-}, [])
   let favMovies = localStorage.getItem('favs');
   let tempMovieInFavs;
 
