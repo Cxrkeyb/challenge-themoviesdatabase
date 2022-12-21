@@ -5,7 +5,7 @@ import swal from 'sweetalert2';
 import {useNavigate, Link, Navigate } from 'react-router-dom';
 import logo from '../media/img/logo.png'
 
-export default function Login() {
+export default function Login({refreshToken}) {
   // Allow to navigate to another page
   let navigate = useNavigate();
   // Form function
@@ -50,6 +50,7 @@ export default function Login() {
         sessionStorage.setItem('token', token);
         //Redirect to another page
         navigate("/listado");
+        refreshToken();
     }
     // Axios post on netlify doesnt works because the url is a http instead a https
     // Post the email and password to get the token of the user

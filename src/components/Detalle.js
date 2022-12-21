@@ -100,13 +100,13 @@ export default function Detalle() {
                 <div>
                   <h6 className='titleMovie'>Presupuesto</h6>
                   <div className='d-flex justify-content-start gap-1'>
-                    <span className='textMovie'>${movie.budget > 999999 ? `${(movie.budget/1000000).toFixed(0)} millones de` : `${(movie.budget/1000).toFixed(0)} miles de`} USD</span>
+                    <span className='textMovie'>${movie.budget >= 1000000 ? `${(movie.budget/1000000).toFixed(0)} millones de` : `${(movie.budget/1000).toFixed(0)} miles de`} USD</span>
                   </div>
                 </div>
                 <div>
                   <h6 className='titleMovie'>Recaudacion</h6>
                   <div className='d-flex align-items-center gap-1'>
-                    <span className='textMovie'>${movie.revenue > 999999 ? `${(movie.revenue/1000000).toFixed(0)} millones de` : `${(movie.revenue/1000).toFixed(0)} miles de`} USD</span>
+                    <span className='textMovie'>${movie.revenue >= 1000000 ? `${(movie.revenue/1000000).toFixed(0)} millones de` : `${(movie.revenue/1000).toFixed(0)} miles de`} USD</span>
                   </div>
                 </div>
               </div>

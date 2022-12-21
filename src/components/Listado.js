@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import ListadoPelicula from './ListadoPelicula';
 
-export default function Listado() {
+export default function Listado({addOrRemoveFromFavs, favorites}) {
     // Take the token data from the localStorage
     let token = sessionStorage.getItem('token');
     const [moviesList, setMoviesList] = useState([]);
@@ -23,7 +23,7 @@ export default function Listado() {
     <>
       {!token && <Navigate to='/' />}
       <div className='p-4 row text-center g-4 bg-dark bg-opacity-75 bg-gradient'>
-        {moviesList.map((movie) => {return(<ListadoPelicula key={movie.id} title={movie.title} id={movie.id} img={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} description={`${movie.overview.substring(0, 100)}...`} />)})}
+        {moviesList.map((movie) => {return(<ListadoPelicula addOrRemoveFromFavs={addOrRemoveFromFavs} favorites={favorites} key={movie.id} title={movie.title} id={movie.id} poster={movie.poster_path} description={movie.overview} />)})}
       </div>
     </>
     

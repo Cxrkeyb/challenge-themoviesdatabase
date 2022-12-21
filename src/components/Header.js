@@ -1,27 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Buscador from './Buscador';
 import logo from '../media/img/logohorizontal.png'
 
-export default function Header() {
-    
+export default function Header({favorites, token}) {
+  
   return (
-    <header>
-        <nav className="navbar navbar-expand-lg bg-dark">
-            <div className="container-fluid">
-                <Link className="navbar-brand" to='/'><img style={{height:'10vh'}} alt='logo' src={logo}></img></Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                    <Link className="nav-link text-white" aria-current="page" to='/'>Home</Link>
-                    <Link className="nav-link text-white-50 " to='/listado'>Listado</Link>
-                    <Link className="nav-link text-white-50 " to=''>Contacto</Link>
-                </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <Navbar bg="dark" expand="lg">
+    <Container>
+      <Navbar.Brand><Link className="navbar-brand" to='/'><img style={{height:'10vh'}} alt='logo' src={logo}></img></Link></Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href="/" className='text-white'>Home</Nav.Link>
+          <Nav.Link href="/listado" className='text-white-50'>Listado</Nav.Link>
+          {token ? 
+            <Nav.Link href="/favoritos" className='text-white-50'>Favoritos</Nav.Link>
+            : null
+          }
+          {favorites.length > 0 && token ? <Nav.Link href="/favoritos" className='text-danger'>Peliculas en favoritos: {favorites.length}</Nav.Link>: null}
+        </Nav>
+        {token ? 
+            <Buscador />
+            : null
+        }
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
     
   )
 }
