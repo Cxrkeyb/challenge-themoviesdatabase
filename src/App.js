@@ -7,9 +7,11 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Detalle from "./components/Detalle";
 import Resultados from "./components/Resultados";
+import Favoritos from "./components/Favoritos";
+import Recovery from "./components/Recovery";
 // Styles
 import './css/App.css'
-import Favoritos from "./components/Favoritos";
+
 
 
 function App() {
@@ -70,6 +72,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Login refreshToken={refreshToken} />} />
         <Route path='/detalle' element={<Detalle />}/>
+        <Route path='/recovery' element={<Recovery />}/>
         <Route path='/listado' element={<Listado addOrRemoveFromFavs={addOrRemoveFromFavs} favorites={favorites}/>}/>
         <Route path='/resultados' element={<Resultados addOrRemoveFromFavs={addOrRemoveFromFavs} favorites={favorites}/>}/>
         <Route path='/favoritos' element={<Favoritos addOrRemoveFromFavs={addOrRemoveFromFavs} favorites={favorites}/>}/>
